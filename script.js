@@ -1,5 +1,15 @@
 document.getElementById('searchBtn').addEventListener('click', function() {
-    const apiKey = '92d9a90d'; 
+    searchMovie();
+});
+
+document.getElementById('movieTitle').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        searchMovie();
+    }
+});
+
+function searchMovie() {
+    const apiKey = '92d9a90d'; // Replace with your OMDb API key
     const movieTitle = document.getElementById('movieTitle').value;
     const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}`;
 
@@ -8,14 +18,11 @@ document.getElementById('searchBtn').addEventListener('click', function() {
         .then(data => {
             const movieDetails = document.getElementById('movieDetails');
             if (data.Response === "True") {
-                // Example YouTube link 
                 const youtubeLink = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(data.Title);
-
                 movieDetails.innerHTML = `
                     <div class="movie">
                         <h2>${data.Title}</h2>
                         <img src="${data.Poster}" alt="${data.Title} poster">
-
                         <p><strong>Year:</strong> ${data.Year}</p>
                         <p><strong>Genre:</strong> ${data.Genre}</p>
                         <p><strong>Director:</strong> ${data.Director}</p>
@@ -32,4 +39,4 @@ document.getElementById('searchBtn').addEventListener('click', function() {
             console.error('Error:', error);
             document.getElementById('movieDetails').innerHTML = '<p>Something went wrong. Please try again later.</p>';
         });
-});
+}
