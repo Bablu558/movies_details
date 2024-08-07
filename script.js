@@ -1,7 +1,7 @@
 document.getElementById('searchBtn').addEventListener('click', function() {
     const apiKey = '92d9a90d'; 
     const movieTitle = document.getElementById('movieTitle').value;
-    const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}`;
+    const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}`;
 
     fetch(url)
         .then(response => response.json())
