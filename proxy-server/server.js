@@ -6,7 +6,9 @@ const path = require('path');
 
 const app = express();
 const port = 3001; // Or any port you prefer
-app.use(cors());
+app.use(cors({
+    origin:'http://127.0.0.1:5500'
+}));
 // Serve static files from the movies_details directory
 app.use(express.static(path.join(__dirname, '..')));
 
@@ -34,7 +36,7 @@ app.get('/api/search', async (req, res) => {
 });
 
 // Handle root route
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../movies_details/index.html'));
 });
 
