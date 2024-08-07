@@ -1,11 +1,12 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors'); 
 require('dotenv').config();
 const path = require('path');
 
 const app = express();
 const port = 3001; // Or any port you prefer
-
+app.use(cors());
 // Serve static files from the movies_details directory
 app.use(express.static(path.join(__dirname, '..')));
 
