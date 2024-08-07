@@ -1,5 +1,5 @@
 document.getElementById('searchBtn').addEventListener('click', function() {
-    const apiKey = '92d9a90d'; // Replace with your OMDb API key
+    const apiKey = '92d9a90d'; 
     const movieTitle = document.getElementById('movieTitle').value;
     const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieTitle)}`;
 
@@ -8,7 +8,7 @@ document.getElementById('searchBtn').addEventListener('click', function() {
         .then(data => {
             const movieDetails = document.getElementById('movieDetails');
             if (data.Response === "True") {
-                // Example YouTube link (you would need to use an API or manually provide these)
+                // Example YouTube link 
                 const youtubeLink = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(data.Title);
 
                 movieDetails.innerHTML = `
