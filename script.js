@@ -7,7 +7,7 @@ document.getElementById('movieTitle').addEventListener('keypress', function(even
 
 function searchMovie() {
     const movieTitle = document.getElementById('movieTitle').value;
-    const proxyUrl = `https://transcendent-puppy-a6545e.netlify.app//api/search?title=${encodeURIComponent(movieTitle)}`;
+    const proxyUrl = `http://localhost:3001/api/search?title=${encodeURIComponent(movieTitle)}`;
 
     fetch(proxyUrl)
         .then(response => response.json())

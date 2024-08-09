@@ -37,7 +37,7 @@ app.get('/api/search', async (req, res) => {
 
 // Handle root route
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../movies_details/index.html'));
+    res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 app.listen(port, () => {
